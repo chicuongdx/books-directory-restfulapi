@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne, PrimaryColumn } from 'typeorm';
 import { Author } from '../authors/author.entity';
 import { Publisher } from '../publishers/publisher.entity';
 import { Category } from '../categories/category.entity';
 
-@Entity()
+@Entity('books')
 export class Book {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   bookID: number;
 
   @Column({ length: 100 })
