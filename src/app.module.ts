@@ -6,7 +6,6 @@ import { CategoriesModule } from './categories/categories.module';
 import { AuthorsModule } from './authors/authors.module';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/book.entity';
-import { TypeOrmModule } from '@nestjs/typeorm/dist';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -16,6 +15,7 @@ import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { Author } from './authors/author.entity';
 import { Category } from './categories/category.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -28,11 +28,11 @@ import { Category } from './categories/category.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1',
+      host: 'localhost',
       port: 3306,
       username: 'root',
       password: 'aneicer123',
-      database: 'books_directory',
+      database: 'bookstores',
       entities: [Book, Publisher, Category, Author],
       synchronize: true,
       autoLoadEntities: true,
