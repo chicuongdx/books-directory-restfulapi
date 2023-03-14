@@ -1,5 +1,5 @@
 import { ReviewsService } from './reviews.service';
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { Review } from './review.entity';
 
 @Controller()
@@ -12,7 +12,9 @@ export class ReviewsController {
   }
 
   @Get('book/:bookID')
-  findForBook(bookID: number): Promise<Review[]> {
+  findForBook(
+    @Param('bookID', ParseIntPipe) bookID: number,
+  ): Promise<Review[]> {
     return this.reviewsService.findForBook(bookID);
   }
 }
