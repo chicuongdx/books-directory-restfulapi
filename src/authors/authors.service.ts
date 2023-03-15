@@ -13,4 +13,8 @@ export class AuthorsService {
   findAll(): Promise<Author[]> {
     return this.authorsRepository.find();
   }
+
+  findOne(authorId: number): Promise<Author> {
+    return this.authorsRepository.findOneBy({ authorID: authorId });
+  }
 }

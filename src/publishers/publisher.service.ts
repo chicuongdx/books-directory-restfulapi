@@ -13,4 +13,8 @@ export class PublisherService {
   findAll(): Promise<Publisher[]> {
     return this.publisherRepository.find();
   }
+
+  findOne(publisherId: number): Promise<Publisher> {
+    return this.publisherRepository.findOneBy({ publisherID: publisherId });
+  }
 }

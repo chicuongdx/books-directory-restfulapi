@@ -1,4 +1,4 @@
-import { Book } from 'src/books/book.entity';
+import { Book } from '../books/book.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -18,6 +18,6 @@ export class Review {
   @Column({ length: 500 })
   reviewText: string;
 
-  @ManyToOne(() => Book, (book) => book.reviews)
-  book: Book;
+  // @ManyToOne(() => Book, (book) => book.reviews)
+  // book: Book;
 }

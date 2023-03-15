@@ -2,7 +2,7 @@ import { Entity, Column, ManyToOne, PrimaryColumn, OneToMany } from 'typeorm';
 import { Author } from '../authors/author.entity';
 import { Publisher } from '../publishers/publisher.entity';
 import { Category } from '../categories/category.entity';
-import { Review } from 'src/reviews/review.entity';
+// import { Review } from 'src/reviews/review.entity';
 
 @Entity('books')
 export class Book {
@@ -30,6 +30,6 @@ export class Book {
   @Column({ type: 'date' })
   publishDate: Date;
 
-  @OneToMany(() => Review, (review) => review.book)
-  reviews: Review[];
+  // @OneToMany(() => Review, (review) => review.book)
+  // reviews: Review[];
 }

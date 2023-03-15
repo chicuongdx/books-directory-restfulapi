@@ -1,3 +1,4 @@
+import { CreateBookDto } from './dto/create-book.dto';
 import {
   Controller,
   Get,
@@ -8,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { Book } from './book.entity';
 import { BooksService } from './books.service';
+import { Body } from '@nestjs/common/decorators';
 
 @Controller('books')
 export class BooksController {
@@ -27,7 +29,7 @@ export class BooksController {
   }
 
   @Post()
-  async createOne(book: Book): Promise<Book> {
+  async createOne(@Body() book: CreateBookDto): Promise<Book> {
     return this.booksService.createOne(book);
   }
 
