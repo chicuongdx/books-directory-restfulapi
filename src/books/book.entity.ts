@@ -1,4 +1,10 @@
-import { Entity, Column, ManyToOne, PrimaryColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Author } from '../authors/author.entity';
 import { Publisher } from '../publishers/publisher.entity';
 import { Category } from '../categories/category.entity';
@@ -6,7 +12,7 @@ import { Category } from '../categories/category.entity';
 
 @Entity('books')
 export class Book {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   bookID: number;
 
   @Column({ length: 100 })
